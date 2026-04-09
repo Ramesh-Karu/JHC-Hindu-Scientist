@@ -1,0 +1,29 @@
+{
+  "entities": {
+    "Submission": {
+      "title": "Submission",
+      "description": "A user submission for Volume 14",
+      "type": "object",
+      "properties": {
+        "category": { "type": "string" },
+        "language": { "type": "string" },
+        "theme": { "type": "string" },
+        "link": { "type": "string", "format": "url" },
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "school": { "type": "string" },
+        "contact": { "type": "string" },
+        "photoUrl": { "type": "string", "format": "url" },
+        "fileUrl": { "type": "string", "format": "url" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["category", "language", "theme", "link", "name", "email", "school", "contact", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/submissions/{submissionId}": {
+      "schema": "Submission",
+      "description": "Submissions collection"
+    }
+  }
+}

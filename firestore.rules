@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper to check if user is the admin
+    function isAdmin() {
+      return request.auth != null && 
+             request.auth.token.email == "rameshnathankaruvoolan10@gmail.com" && 
+             request.auth.token.email_verified == true;
+    }
+
+    match /submissions/{submissionId} {
+      // Allow public creation with strict validation
+      allow create: if request.resource.data.keys().hasAll(['category', 'language', 'theme', 'link', 'name', 'email', 'school', 'contact', 'createdAt']) &&
+                       request.resource.data.email is string && 
+                       request.resource.data.email.size() < 100 &&
+                       request.resource.data.name is string &&
+                       request.resource.data.name.size() < 100 &&
+                       request.resource.data.link is string &&
+                       request.resource.data.link.size() < 500;
+      
+      // Only admin can read submissions
+      allow read: if isAdmin();
+    }
+  }
+}
