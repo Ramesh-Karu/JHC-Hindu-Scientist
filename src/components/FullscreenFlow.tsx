@@ -281,8 +281,8 @@ export default function FullscreenFlow() {
           {step === 4 && (
             <motion.div key="step-4" variants={variants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.8 }} className="w-full max-w-2xl py-4">
               <h2 className="text-2xl md:text-3xl text-center text-slate-300 mb-8 md:mb-12 font-light tracking-wide">Select Language</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                {['English', 'Tamil'].map((lang) => (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+                {['English', 'Tamil', 'Sinhala'].map((lang) => (
                   <button
                     key={lang}
                     onClick={() => { setFormData({ ...formData, language: lang }); setStep(5); }}
