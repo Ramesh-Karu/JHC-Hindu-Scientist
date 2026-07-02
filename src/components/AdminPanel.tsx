@@ -186,7 +186,7 @@ export default function AdminPanel() {
 
   if (loading || (user && isAdmin === null)) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#020617] p-4">
+      <div className="h-screen w-full overflow-y-auto flex items-center justify-center bg-[#020617] p-4">
         <RefreshCcw className="animate-spin text-cyan-500" size={48} />
       </div>
     );
@@ -194,7 +194,7 @@ export default function AdminPanel() {
 
   if (!user || !isAdmin) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#020617] p-4">
+      <div className="h-screen w-full overflow-y-auto flex items-center justify-center bg-[#020617] p-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -227,7 +227,7 @@ export default function AdminPanel() {
   }
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-200">
+    <div className="h-screen w-full overflow-y-auto bg-[#020617] text-slate-200">
       {/* Header */}
       <header className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
