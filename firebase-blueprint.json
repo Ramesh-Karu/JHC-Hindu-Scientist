@@ -18,12 +18,27 @@
         "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": ["category", "language", "theme", "link", "name", "email", "school", "contact", "createdAt"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "An administrator account",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "addedAt": { "type": "string", "format": "date-time" },
+        "addedBy": { "type": "string", "format": "email" }
+      },
+      "required": ["email", "addedAt"]
     }
   },
   "firestore": {
     "/submissions/{submissionId}": {
       "schema": "Submission",
       "description": "Submissions collection"
+    },
+    "/admins/{email}": {
+      "schema": "Admin",
+      "description": "Administrator collection"
     }
   }
 }
